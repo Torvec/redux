@@ -1,21 +1,25 @@
+// Import the createSlice function from the @reduxjs/toolkit package.
 const createSlice = require("@reduxjs/toolkit").createSlice;
 
-const initState = {
+// Create an initial state object for the cake feature.
+const initialState = {
   numOfCakes: 10,
 };
 
+// Create a slice of the cake feature.
 const cakeSlice = createSlice({
   name: "cake",
-  initState,
+  initialState,
   reducers: {
     ordered: (state) => {
       state.numOfCakes--;
     },
     restocked: (state, action) => {
-      state.numbOfCakes += action.payload;
+      state.numOfCakes += action.payload;
     },
   },
 });
 
+// Export the reducer and actions from the slice.
 module.exports = cakeSlice.reducer;
 module.exports.cakeActions = cakeSlice.actions;
