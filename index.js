@@ -5,6 +5,11 @@ const redux = require("redux");
 const createStore = redux.createStore;
 const bindActionCreators = redux.bindActionCreators;
 const combineReducers = redux.combineReducers;
+const applyMiddleware = redux.applyMiddleware;
+
+// Logger middleware
+const reduxLogger = require("redux-logger");
+const logger = reduxLogger.createLogger();
 
 // JS App --> Dispatch Action --> reducer --> redux store (state) --> App
 // JS App is subscribed to the store, so whenever the store changes, the app will re-render
@@ -142,12 +147,15 @@ const rootReducer = combineReducers({
   iceCream: iceCreamReducer,
 });
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(logger));
 console.log("Initial state: ", store.getState());
 
-const unsubscribe = store.subscribe(() =>
-  console.log("Updated state: ", store.getState())
-);
+// Commented out because we're using the logger middleware and the console.log is already in the middleware
+// const unsubscribe = store.subscribe(() =>
+//   console.log("Updated state: ", store.getState())
+// );
+
+const unsubscribe = store.subscribe(() => {});
 
 // Dispatching actions, remove a cake from inventory
 // store.dispatch(orderCake());
