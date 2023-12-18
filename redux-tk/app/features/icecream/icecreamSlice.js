@@ -20,6 +20,7 @@ const icecreamSlice = createSlice({
             state.numOfIcecreams += action.payload;
         },
     },
+    // Allows us to listen to actions from other slices, in this case, ordering a cake will reduce the number of ice creams by 1      
     extraReducers: (builder) => {
         builder.addCase(cakeActions.ordered, (state) => {
             state.numOfIcecreams--;

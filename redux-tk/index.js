@@ -14,13 +14,13 @@ store.dispatch(fetchUsers());
 // Logger middleware takes care of logs
 // const unsubscribe = store.subscribe(() => {});
 
-// store.dispatch(cakeActions.ordered());
-// store.dispatch(cakeActions.ordered());
-// store.dispatch(cakeActions.ordered());
-// store.dispatch(cakeActions.restocked(3));
+store.dispatch(cakeActions.ordered());
+store.dispatch(cakeActions.ordered());
+store.dispatch(cakeActions.ordered());
+store.dispatch(cakeActions.restocked(3));
 
-// store.dispatch(icecreamActions.ordered());
-// store.dispatch(icecreamActions.ordered());
-// store.dispatch(icecreamActions.restocked(2));
+store.dispatch(icecreamActions.ordered());
+store.dispatch(icecreamActions.ordered());
+store.dispatch(icecreamActions.restocked(2));
 
-// unsubscribe(); // Unsubscribe from store
+// unsubscribe(); // Unsubscribe from store, don't use if using async actions like fetchUsers as it will unsubscribe before the action is completed

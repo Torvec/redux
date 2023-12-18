@@ -131,6 +131,12 @@ const iceCreamReducer = (state = initIceCreamState, action) => {
         ...state,
         numOfIceCreams: state.numOfIceCreams + action.payload,
       };
+    // Whenever a cake is ordered, we want to reduce the number of ice creams by 1
+    case CAKE_ORDERED:
+      return {
+        ...state,
+        numOfIceCreams: state.numOfIceCreams - action.payload,
+      };
     default:
       return state;
   }

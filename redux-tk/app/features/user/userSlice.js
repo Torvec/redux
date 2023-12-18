@@ -8,7 +8,7 @@ const initialState = {
   error: "",
 };
 
-// Automatically generates pending, fulfilled, and rejected action types
+// Automatically generates pending, fulfilled, and rejected action types which is the entire lifecycle of an async request
 const fetchUsers = createAsyncThunk("user/fetchUsers", () => {
   return axios
     .get("https://jsonplaceholder.typicode.com/users")
