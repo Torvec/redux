@@ -5,6 +5,7 @@ import { fetchUsers } from "./userSlice";
 export const UserView = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  // Dependency array is empty because nothing is set to trigger a new fetch
   useEffect(() => {
     dispatch(fetchUsers());
   }, []);
